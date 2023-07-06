@@ -22,13 +22,13 @@ Now all setup is done, you can use other components according to your requiremen
 
 # Components
 
-## <x-areviews-areviews:admin-sidebar-links />
+## Admin sidebar menu
 
-Use this component to show the menu item in admin sidebar
+**<x-areviews-areviews:admin-sidebar-links />:** Use this component to show the menu item in admin sidebar
 
-## <x-areviews-areviews:reviews ..... />
+## Listing reviews
 
-This component will be useful to show the list of reviews. You can list your own reviews or default latest reviews with or without pagination. Default display style will be masonry using bootstrap rows and columns. You can further customize this component after publishing the assets. There are some arguments with this component which may help you in achieving your desired format:
+**<x-areviews-areviews:reviews ..... />:** This component will be useful to show the list of reviews. You can list your own reviews or default latest reviews with or without pagination. Default display style will be masonry using bootstrap rows and columns. You can further customize this component after publishing the assets. There are some arguments with this component which may help you in achieving your desired format:
 
 -  **reviews:** Pass the collection of reviews which you have already digged out from the database. Only these reviews will be shown in the list.
 
@@ -50,9 +50,9 @@ Getting all reviews of a product with pagination.
 
     <x-areviews-areviews:reviews :model="$product" limit="20" :paginate="true" />
 
-## <x-areviews-areviews:review-form ..... />
+## Getting reviews form
 
-This component can used to store or edit the reviews. There are some arguments by which you can change the functionalities. Some fields can be removed just by changing fields array in config.
+**<x-areviews-areviews:review-form ..... />:** This component can used to store or edit the reviews. There are some arguments by which you can change the functionalities. Some fields can be removed just by changing fields array in config.
 
 - **model:** Pass the model for which you want to associate the review.
 
@@ -78,7 +78,7 @@ This component can used to store or edit the reviews. There are some arguments b
         :redirect="route('admin.reviews.index')" />
 
 
-## <x-areviews-areviews:review-card ..... />
+## Show a single review
 
-This will display a review item, an argument named `review` will be passed with the review model which will be shown.
+**<x-areviews-areviews:review-card ..... />:** This will display a review item, an argument named `review` will be passed with the review model which will be shown.
 eg. `<x-areviews-areviews:review-card :review="$review" />`
