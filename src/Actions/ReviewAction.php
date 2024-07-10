@@ -13,6 +13,7 @@ class ReviewAction
             'email'    =>  'nullable',
             'title'    =>  'nullable',
             'content'    =>  'required',
+            'user_id' => 'nullable',
             'reviewable_type'    =>  'required|string',
             'reviewable_id'    =>  'required|numeric',
         ]);
@@ -32,6 +33,8 @@ class ReviewAction
                 'title' => 'required'
             ]);
         }
+
+        $validated['user_id'] = $validated['user_id'] ? $validated['user_id'] : auth()->id();
 
         return $validated;
     }
