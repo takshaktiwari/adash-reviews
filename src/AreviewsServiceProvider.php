@@ -21,8 +21,11 @@ class AreviewsServiceProvider extends ServiceProvider
         $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
         $this->publishes([
             __DIR__ . '/../resources/views' => resource_path('views'),
-            __DIR__ . '/../config' => resource_path('config'),
-        ]);
+        ], 'areviews-views');
+
+        $this->publishes([
+            __DIR__ . '/../config' => config_path('/'),
+        ], 'areviews-config');
 
         Paginator::useBootstrap();
         $this->loadRoutes();
