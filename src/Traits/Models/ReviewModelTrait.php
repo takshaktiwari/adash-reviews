@@ -10,7 +10,7 @@ trait ReviewModelTrait
     public function getRatingAttribute()
     {
         $this->loadAvg('reviews', 'rating');
-        return round($this->reviews_avg_rating, 1);
+        return $this->reviews_avg_rating ? round($this->reviews_avg_rating, 1) : 0;
     }
 
     public function reviews(): MorphMany
