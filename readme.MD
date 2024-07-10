@@ -16,6 +16,10 @@ Add component to admin sidebar, inside `ul` element for getting the links in adm
 
     <x-areviews-areviews:admin-sidebar-links />
 
+Run migration
+
+    php artisan migrate
+
 Use `Takshak\Areviews\Traits\Models\ReviewModelTrait` to those model in which you want to implement the reviews system. This will help you to get the rating and reviews of the model. If the model is _$product_, rating of the model will be accessed by `$product->rating` and reviews by `$product->reviews`.
 
 Now all setup is done, you can use other components according to your requirements.
