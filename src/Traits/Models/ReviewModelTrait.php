@@ -9,7 +9,9 @@ trait ReviewModelTrait
 {
     public function getRatingAttribute()
     {
-        $this->loadAvg('reviews', 'rating');
+        if(!array_key_exists('reviews_avg_rating', $this->getAttributes())){
+            $this->loadAvg('reviews', 'rating');
+        }
         return $this->reviews_avg_rating ? round($this->reviews_avg_rating, 1) : 0;
     }
 
