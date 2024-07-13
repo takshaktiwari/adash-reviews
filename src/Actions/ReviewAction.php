@@ -34,7 +34,11 @@ class ReviewAction
             ]);
         }
 
-        $validated['user_id'] = $validated['user_id'] ? $validated['user_id'] : auth()->id();
+        if(isset($validated['user_id'])){
+            $validated['user_id'] = $validated['user_id'] ? $validated['user_id'] : auth()->id();
+        }else{
+            $validated['user_id'] = auth()->id();
+        }
 
         return $validated;
     }
