@@ -19,6 +19,7 @@ class AreviewsServiceProvider extends ServiceProvider
         ]);
 
         $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
+
         $this->publishes([
             __DIR__ . '/../resources/views' => resource_path('views'),
         ], 'areviews-views');
@@ -27,12 +28,20 @@ class AreviewsServiceProvider extends ServiceProvider
             __DIR__ . '/../config' => config_path('/'),
         ], 'areviews-config');
 
+        $this->publishes([
+            __DIR__ . '/../routes/web.php' => base_path('routes/areviews.php'),
+        ], 'areviews-routes');
+
         Paginator::useBootstrap();
         $this->loadRoutes();
     }
 
     public function loadRoutes()
     {
-        $this->loadRoutesFrom(__DIR__ . '/../routes/web.php');
+        if (file_exists(base_path('routes/areviews.php'))) {
+            $this->loadRoutesFrom(base_path('routes/areviews.php'));
+        }else{
+            $this->loadRoutesFrom(__DIR__ . '/../routes/web.php');
+        }
     }
 }
