@@ -12,7 +12,7 @@ class ReviewController extends Controller
 {
     public function index(Request $request)
     {
-        $reviews = Review::latest()->paginate(100);
+        $reviews = Review::with('reviewable')->latest()->paginate(100);
         return View::first(['admin.reviews.categories.index', 'areviews::admin.reviews.index'])
             ->with([
                 'reviews'   =>  $reviews
