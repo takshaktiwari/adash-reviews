@@ -23,4 +23,11 @@ return [
             ]
         ],
     ],
+    'status' => [
+        'default' => true,
+        'show_only' => 'active', # possible values: active, inactive, all
+    ],
+    'form' => [
+        'display'   => true,
+    ]
 ];
