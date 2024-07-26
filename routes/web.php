@@ -13,6 +13,6 @@ Route::middleware('web')->group(function () {
         ->name('admin.')
         ->group(function () {
             Route::resource('reviews', AdminReviewController::class);
-            Route::get('reviews/status-toggle/status', [AdminReviewController::class, 'statusToggle'])->name('reviews.status-toggle');
+            Route::get('reviews/{review}/status-toggle', [AdminReviewController::class, 'statusToggle'])->name('reviews.status-toggle');
         });
 });
