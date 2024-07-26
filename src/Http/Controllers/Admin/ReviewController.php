@@ -49,4 +49,12 @@ class ReviewController extends Controller
         $review->delete();
         return redirect()->route('admin.reviews.index')->withSuccess('Review has been successfully deleted');
     }
+
+    public function statusToggle(Review $review)
+    {
+        $review->status = !$review->status;
+        $review->save();
+
+        return back();
+    }
 }
