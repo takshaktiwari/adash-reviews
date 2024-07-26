@@ -21,6 +21,12 @@ class Reviews extends Component
                     $query->where('reviewable_type', get_class($this->model));
                     $query->where('reviewable_id', $this->model->id);
                 })
+                ->when(config('areviews.status.show_only', 'active') == 'active', function($query){
+                    $query->where('status', true);
+                })
+                ->when(config('areviews.status.show_only', 'active') == 'inactive', function($query){
+                    $query->where('status', false);
+                })
                 ->latest();
 
             if ($this->paginate) {

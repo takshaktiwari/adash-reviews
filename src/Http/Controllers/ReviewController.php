@@ -12,7 +12,7 @@ class ReviewController extends Controller
     public function store(Request $request, ReviewAction $action)
     {
         $validated = $action->validate($request);
-        Review::create($validated);
+        Review::create($validated + ['status' => config('areviews.status.default', true)]);
 
         $route = $request->post('redirect') ? $request->post('redirect') : url()->previous();
         return redirect($route)->withSuccess('Thank You, Your review has been posted.');

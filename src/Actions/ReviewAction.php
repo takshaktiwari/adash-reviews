@@ -12,6 +12,7 @@ class ReviewAction
             'mobile'    =>  'nullable',
             'email'    =>  'nullable',
             'title'    =>  'nullable',
+            'status'    =>  'nullable|boolean',
             'content'    =>  'required',
             'user_id' => 'nullable',
             'reviewable_type'    =>  'required|string',

@@ -13,7 +13,8 @@ class ReviewForm extends Component
         public $url = null,
         public $method = 'POST',
         public $redirect = null,
-        public $display = null
+        public $display = null,
+        public $addStatus = false,
     ) {
         if(!$this->url){
             $this->url = route('review.store');

@@ -9,5 +9,5 @@
     ]" />
 
     <x-areviews-areviews:review-form method="PUT" :model="$review->reviewable" :review="$review" :url="route('admin.reviews.update', [$review])"
-        :redirect="route('admin.reviews.index')" />
+        :redirect="route('admin.reviews.index')" :display="true" :addStatus="true" />
 </x-admin.layout>

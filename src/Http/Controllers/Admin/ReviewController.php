@@ -38,7 +38,7 @@ class ReviewController extends Controller
     public function update(Review $review, Request $request, ReviewAction $action)
     {
         $validated = $action->validate($request);
-        $review->update($validated);
+        $review->update($validated + ['status' => $request->boolean('status')]);
 
         $route = $request->post('redirect') ? $request->post('redirect') : url()->previous();
         return redirect($route)->withSuccess('Review has been successfully updated');

@@ -11,7 +11,7 @@ return new class () extends Migration {
     public function up(): void
     {
         Schema::table('reviews', function (Blueprint $table) {
-            $table->boolean('status')->nullable()->default(true);
+            $table->boolean('status')->after('content')->nullable()->default(true);
         });
     }
 
