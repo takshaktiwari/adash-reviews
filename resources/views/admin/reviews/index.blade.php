@@ -31,7 +31,7 @@
                             </td>
                             <td>{{ $review->title }}</td>
                             <td>
-                                <a href="{{ route('admin.reviews.status-toggle', [!$review->status]) }}">
+                                <a href="{{ route('admin.reviews.status-toggle', [$review]) }}">
                                     {{ $review->status ? 'Active' : 'Inactive' }}
                                 </a>
                             </td>
