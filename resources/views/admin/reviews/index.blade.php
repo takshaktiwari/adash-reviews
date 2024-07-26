@@ -17,6 +17,7 @@
                     <th>Name</th>
                     <th>Rating</th>
                     <th>Title</th>
+                    <th>Status</th>
                     <th>Action</th>
                 </thead>
                 <tbody>
@@ -29,6 +30,11 @@
                                 <i class="fas fa-star"></i>
                             </td>
                             <td>{{ $review->title }}</td>
+                            <td>
+                                <a href="{{ route('admin.reviews.status-toggle', [!$review->status]) }}">
+                                    {{ $review->status ? 'Active' : 'Inactive' }}
+                                </a>
+                            </td>
                             <td>
                                 <a href="{{ route('admin.reviews.show', [$review]) }}"
                                     class="btn btn-info btn-sm btn-loader load-circle">
