@@ -13,7 +13,7 @@ class ReviewController extends Controller
     public function index(Request $request)
     {
         $reviews = Review::with('reviewable')->latest()->paginate(100);
-        return View::first(['admin.reviews.categories.index', 'areviews::admin.reviews.index'])
+        return View::first(['admin.reviews.index', 'areviews::admin.reviews.index'])
             ->with([
                 'reviews'   =>  $reviews
             ]);
@@ -21,7 +21,7 @@ class ReviewController extends Controller
 
     public function show(Review $review)
     {
-        return View::first(['admin.reviews.categories.show', 'areviews::admin.reviews.show'])
+        return View::first(['admin.reviews.show', 'areviews::admin.reviews.show'])
             ->with([
                 'review'   =>  $review
             ]);
@@ -29,7 +29,7 @@ class ReviewController extends Controller
 
     public function edit(Review $review)
     {
-        return View::first(['admin.reviews.categories.edit', 'areviews::admin.reviews.edit'])
+        return View::first(['admin.reviews.edit', 'areviews::admin.reviews.edit'])
             ->with([
                 'review'   =>  $review
             ]);
