@@ -15,14 +15,16 @@ class ReviewForm extends Component
         public $redirect = null,
         public $display = null,
         public $addStatus = false,
+        public $header = 'Write A Review'
     ) {
         if(!$this->url){
             $this->url = route('review.store');
         }
 
-        if(!$this->display)
+
+        if($this->display == null)
         {
-            $this->display = config('areviews.form.display');
+            $this->display = config('areviews.form.display', true);
         }
     }
 

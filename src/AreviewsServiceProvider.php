@@ -16,6 +16,7 @@ class AreviewsServiceProvider extends ServiceProvider
             View\Components\Areviews\Reviews::class,
             View\Components\Areviews\ReviewCard::class,
             View\Components\Areviews\AdminSidebarLinks::class,
+            View\Components\Areviews\ReviewsStats::class,
         ]);
 
         $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');

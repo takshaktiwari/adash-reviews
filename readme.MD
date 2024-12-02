@@ -32,7 +32,7 @@ Now all setup is done, you can use other components according to your requiremen
 
 ## Listing reviews
 
-**<x-areviews-areviews:reviews ..... />:** This component will be useful to show the list of reviews. You can list your own reviews or default latest reviews with or without pagination. Default display style will be masonry using bootstrap rows and columns. You can further customize this component after publishing the assets. There are some arguments with this component which may help you in achieving your desired format:
+**<x-areviews-areviews:reviews ..... />:** This component will be useful to show the list of reviews. You can list your own reviews or default latest reviews with or without pagination. Default display style will be masonry using bootstrap rows and columns. You can further customize this component after publishing the assets. This will also include the reviews form and stats. There are some arguments with this component which may help you in achieving your desired format:
 
 -  **reviews:** Pass the collection of reviews which you have already digged out from the database. Only these reviews will be shown in the list.
 
@@ -43,6 +43,12 @@ Now all setup is done, you can use other components according to your requiremen
 -  **column:** Use the column classes to control the number of columns in listing. Default value is `col-lg-4 col-md-6`. It will show 3 columns on large screen, 2 in medium screen and single column in small or mobile devices. You can pass your own column classes to control the columns. You can also define it globally in config file.
 
 -  **paginate:** Put the value `true` or `false` to get pagination feature on listing. This will only work if you are getting the reviews from `model` argument not from `reviews` argument.
+
+- **addReview:** Add the review btn and review form, default is true
+
+- **reviewStats:** Show reviews status or not
+
+- **avgRating: / $countReviews:** Pass the average of rating and and total reviews count to show in the heading or other places. If not password, it will run database queries to get the avr rating and total reviews count if you have passed the **modal:** argument, otherwise it will return 0.
 
 ### Example:
 
@@ -68,6 +74,10 @@ Getting all reviews of a product with pagination.
 
 - **redirect:** Form will be redirected back to the form after submission. If you want to goto some other page after form submission, you can pass the destination url here.
 
+- **header:** If you want to show the form header of not, pass the text to change header text or leave it blank to remove it
+
+- **avgRating: / $countReviews:** Pass the average of rating and and total reviews count to show in the heading or other places. If not password, it will run database queries to get the avr rating and total reviews count if you have passed the **modal:** argument, otherwise it will return 0.
+
 **Example**
 
     // for storing the review.
@@ -86,3 +96,13 @@ Getting all reviews of a product with pagination.
 
 **<x-areviews-areviews:review-card ..... />:** This will display a review item, an argument named `review` will be passed with the review model which will be shown.
 eg. `<x-areviews-areviews:review-card :review="$review" />`
+
+**<x-areviews-areviews:reviews-stats ..... />:** This will give you the stats of reviews and rating.
+
+
+### Filter / Sorting Reviews by URL
+
+You can order the listing of reviews by passing the query parameter `reviews_order`. Valid values for this parameter will be: __latest, oldest, rating_asc, rating_desc__
+
+You can get only specific rating by passing query parameter `reviews_rating` which will hold the value `1, 2, ..5`
+

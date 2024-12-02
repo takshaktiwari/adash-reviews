@@ -1,10 +1,12 @@
 @if ($display)
-    <form action="{{ $url }}" class="card" method="POST">
+    <form action="{{ $url }}" class="card reviews_form" method="POST">
         @csrf
         @method($method)
-        <div class="card-header">
-            <h5 class="my-auto">Write A Review</h5>
-        </div>
+        @if ($header)
+            <div class="card-header">
+                <h5 class="my-auto">Write A Review</h5>
+            </div>
+        @endif
         <div class="card-body">
             <div class="star_rating_inputs">
                 <input class="star star-5" id="star-5" type="radio" value="5" name="rating"
@@ -24,7 +26,7 @@
                 <label class="star star-1" for="star-1"></label>
             </div>
 
-            <div class="row">
+            <div class="row g-2">
                 <div class="col">
                     <div class="form-group mb-2">
                         <label for="">Name*</label>
@@ -123,7 +125,7 @@
 
                 .star_rating_inputs input.star:checked~label.star:before {
                     content: '\f005';
-                    color: rgb(255, 214, 30);
+                    color: rgb(185, 185, 16);
                     transition: all .25s;
                 }
 
