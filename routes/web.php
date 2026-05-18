@@ -8,6 +8,7 @@ use Takshak\Areviews\Http\Controllers\Admin\ReviewController as AdminReviewContr
 
 Route::middleware('web')->group(function () {
     Route::post('review', [ReviewController::class, 'store'])->name('review.store');
+    Route::middleware('auth')->delete('review/{review}', [ReviewController::class, 'destroy'])->name('review.destroy');
     Route::middleware(['auth', GatesMiddleware::class, ReferrerMiddleware::class])
         ->prefix('admin')
         ->name('admin.')

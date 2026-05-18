@@ -52,12 +52,12 @@ class Reviews extends Component
             if ($this->paginate) {
                 $query = $query->paginate($this->limit);
             } else {
-                $query = $query->limit($limit)->get();
+                $query = $query->limit($this->limit)->get();
             }
 
             $this->reviews = $query;
         } else {
-            $this->reviews = $this->reviews->take($limit);
+            $this->reviews = $this->reviews->take($this->limit);
         }
 
         if ($this->avgRating == null) {

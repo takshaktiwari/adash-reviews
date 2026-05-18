@@ -8,7 +8,7 @@ use Takshak\Areviews\Models\Areviews\Review;
 
 class ReviewCard extends Component
 {
-    public function __construct(public $review)
+    public function __construct(public $review, public bool $deleteBtn = false)
     {
     }
 

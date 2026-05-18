@@ -17,4 +17,14 @@ class ReviewController extends Controller
         $route = $request->post('redirect') ? $request->post('redirect') : url()->previous();
         return redirect($route)->withSuccess('Thank You, Your review has been posted.');
     }
+
+    public function destroy(Review $review)
+    {
+        if ($review->user_id !== auth()->id()) {
+            abort(403);
+        }
+
+        $review->delete();
+        return back()->withSuccess('Your review has been deleted.');
+    }
 }

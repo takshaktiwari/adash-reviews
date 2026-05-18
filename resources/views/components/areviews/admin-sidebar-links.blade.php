@@ -1,6 +1,6 @@
-<li>
-    <a href="{{ route('admin.reviews.index') }}" class=" waves-effect">
-        <i class="fas fa-star"></i>
+<li class="nav-item">
+    <a href="{{ route('admin.reviews.index') }}" class="nav-link {{ request()->routeIs('admin.reviews.*') ? 'active' : '' }}">
+        <i class="bi bi-star-half"></i>
         <span>Reviews</span>
     </a>
 </li>
