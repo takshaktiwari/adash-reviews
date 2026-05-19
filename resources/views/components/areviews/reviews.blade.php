@@ -1,4 +1,4 @@
-<div class="reviews-section">
+<div class="reviews-section reviews-listing">
     <div class="d-flex align-items-center justify-content-between gap-3 flex-wrap mb-4">
         <div>
             <h4 class="fw-bold mb-1">Ratings &amp; Reviews</h4>
